@@ -1,5 +1,3 @@
-A PyTorch implementation of our CVPR 2020 article [An Adaptive Neural Network for Unsupervised Mosaic Consistency Analysis in Image Forensics](http://openaccess.thecvf.com/content_CVPR_2020/html/Bammey_An_Adaptive_Neural_Network_for_Unsupervised_Mosaic_Consistency_Analysis_in_CVPR_2020_paper.html), by Quentin Bammey, Rafael Grompone von Gioi and Jean-Michel Morel.
-
 # Requirements
 python >= 3.6
 
@@ -16,7 +14,13 @@ detect_forgeries_multiple.py
 train_model.py
 
 # Dataset
-The dataset used in our article can be found [here](http://dev.ipol.im/~qbammey/dresden_demosaicing_forgery_detection_dataset_v1/).
+The dataset can be found [here](http://dev.ipol.im/~qbammey/dresden_demosaicing_forgery_detection_dataset_v1/).
+
+Download the dataset to folder `input` 
+```
+!wget http://dev.ipol.im/~qbammey/dresden_demosaicing_forgery_detection_dataset_v1/dresden_demosaicing_forgery_detection_dataset_v1.zip
+!unzip dresden_demosaicing_forgery_detection_dataset_v1.zip -d input/
+```
 
 # Usage
 
@@ -26,6 +30,7 @@ train_model.py [-h] [-m MODEL] [-j JPEG] [-b BLOCK_SIZE] [-o OUT]
                       [-l LEARNING_RATE] [-a EPOCHS_AUXILIARY]
                       [-B EPOCHS_BLOCKWISE] [-s BATCH_SIZE]
                       input [input ...]
+Ex: train_model.py 'input/images'
 ```
 To use a pretrained network and retrain it on data, specify the pretrained model with -m.
 All images are kept in GPU memory at the same time. As a consequence, training on a large database require more GPU memory.
